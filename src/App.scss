@@ -1,0 +1,211 @@
+// FONT
+
+@font-face {
+  font-family: 'Booster Next FY';
+  src: url('../fonts/booster-next-fy.eot');
+  src: url('../fonts/booster-next-fy.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/booster-next-fy.woff2') format('woff2'),
+      url('../fonts/booster-next-fy.woff') format('woff'),
+      url('../fonts/booster-next-fy.ttf') format('truetype'),
+      url('../fonts/booster-next-fy.svg#Booster Next FY') format('svg');
+}
+
+// COLORS
+
+$two-light-orange: #fef1e8;
+$light-orange: #faaf78;
+$orange: #f49257;
+$dark-orange: #993300;
+$light-terracotta: #d86f67;
+$terracotta: #b14534;
+$dark-terracotta: #8c231a;
+$two-light-green: #d1e4b4;
+$light-green: #a4c96a;
+$green: #7b933c;
+$dark-green: #577d1e;
+$two-dark-green: #3e5902;
+$light-magenta: #ca5e72;
+$magenta: #95224c;
+$dark-magenta: #7e1126;
+
+* h2 {
+  margin: 0;
+  font-family: 'Booster Next FY';
+  font-size: 20px;
+  font-weight: 400;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+// HOME
+  // Header
+
+.header {
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  background-image: url('/src/assets/img/bgHeader.png');
+  background-size: cover;
+}
+
+  .box {
+    width: 50vw;
+    align-items: center;
+    padding-left: 10%;
+  }
+
+    .grid-one {
+      width: 12vw;
+      display: grid;
+      grid-template-columns: 0.95fr 0.8fr 0.3fr 0.8fr;
+      grid-gap: 0.5vw;
+    }
+
+      .grid-one img, .grid-two img {
+        margin: 0;
+        justify-self: center; 
+        align-self: end;
+      }
+
+    .grid-two {
+      padding-top: 0.5rem;
+      display: grid;
+      grid-template-columns: 0.8fr 0.8fr 0.7fr 0.2fr 1.1fr 0.8fr 0.47fr 0.32fr 0.8fr 0.2fr 0.9fr 0.7fr 0.47fr 0.47fr 0.7fr 0.47fr 0.8fr 0.25fr;
+      grid-auto-rows: 11vh;
+      grid-gap: 0.5vw;
+    }
+
+      .y-letter {
+        transform: translateY(2vh);
+      }
+
+      .flower-one, .flower-two {
+        animation: spin 6s infinite linear;
+      }
+
+      .logo {
+        animation: scale 2s ease-in-out infinite alternate;
+      }
+
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes scale {
+          from {
+            transform: scale(0.8);
+          }
+          to {
+            transform: scale(1);
+          }
+        }
+    
+    // .sub-title {
+    //   width: 97%;
+    //   margin-top: 0.5rem;
+    //   text-align: right;
+    //   color: $two-dark-green;
+    // }
+
+  // About Me
+
+  .about-me {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-image: url('/src/assets/img/bgAboutMe.png');
+    background-size: cover;
+  }
+
+  .mini-banner {
+    height: 8vh;
+    width: 100vw;
+  }
+  
+    .infinite-marquee {
+      height: 7vh;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      overflow: hidden;
+      background-color: $two-light-orange;
+      border-bottom: 0.5vh solid $magenta;
+      border-top: 0.5vh solid $magenta;
+
+      h2 {
+        color: $magenta;
+        align-self: center;
+        word-spacing: 0.2rem;
+        white-space: nowrap;
+        animation: move-rtl 90000ms linear infinite;
+
+        span {
+          padding: 0% 1% 0% 1%;
+        }
+
+      }
+
+      @keyframes move-rtl {
+        0% {
+          transform: translateX(100);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+    }
+  
+  // Navbar
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    
+    // &__logo {
+    //   /* Estilos para el logo */
+    // }
+    
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    li {
+      margin: 0 1rem;
+    }
+    
+    &-link {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      transition: color 0.2s ease-in-out;
+      
+      &:hover {
+        color: #0066ff;
+      }
+    }
+  }
+
+
