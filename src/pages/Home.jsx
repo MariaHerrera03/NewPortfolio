@@ -1,7 +1,11 @@
 import Header from './Home/Header'
 import AboutMe from './Home/AboutMe'
-import Infinite from './Home/AboutMeInfinite'
+import InfiniteOne from './Home/AboutMeInfinite'
 import Navbar from '../pages/Navbar'
+import InfiniteTwo from './Home/ProjectsInfinite'
+import Projects from './Home/Projects'
+import InfiniteThree from './Home/ContactMeInfinite'
+import ContactMe from './Home/ContactMe'
 
 function Home() {
 
@@ -9,8 +13,12 @@ function Home() {
         <>
             <Navbar/>
             <Header/>
-            <Infinite/>
+            <InfiniteOne/>
             <AboutMe/>
+            <InfiniteTwo/>
+            <Projects/>
+            <InfiniteThree/>
+            <ContactMe/>
         </>
     )
 }

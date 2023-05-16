@@ -12,27 +12,36 @@
 
 // COLORS
 
-$two-light-orange: #fef1e8;
-$light-orange: #faaf78;
-$orange: #f49257;
-$dark-orange: #993300;
-$light-terracotta: #d86f67;
-$terracotta: #b14534;
-$dark-terracotta: #8c231a;
-$two-light-green: #d1e4b4;
-$light-green: #a4c96a;
-$green: #7b933c;
-$dark-green: #577d1e;
-$two-dark-green: #3e5902;
-$light-magenta: #ca5e72;
-$magenta: #95224c;
-$dark-magenta: #7e1126;
+$linen: #fef1e8;
+$unbleachedSilk: #fcdfc9;
+$veryLightTangelo: #faaf78;
+$bigFootFeet: #f49257;
+$brown: #993300;
+$fuzzyWuzzy: #d86f67;
+$mediumCarmine: #b14534;
+$kobe: #8c231a;
+$frenchPuce: #4c1b0f;
+$eggshell: #e8f1da;
+$teaGreen: #d1e4b4;
+$middleGreenYellow: #a4c96a;
+$palmLeaf: #7b933c;
+$sapGreen: #577d1e;
+$metallicGreen: #3e5902;
+$piggyPink: #f5dfe3;
+$cinnamonSatin: #ca5e72;
+$bigDipRuby: #95224c;
+$antiqueRuby: #7e1126;
 
 * h2 {
   margin: 0;
   font-family: 'Booster Next FY';
   font-size: 20px;
-  font-weight: 400;
+}
+
+* h3 {
+  margin: 0;
+  font-family: 'Booster Next FY';
+  font-size: 30px;
 }
 
 body {
@@ -109,52 +118,186 @@ body {
             transform: scale(1);
           }
         }
-    
-    // .sub-title {
-    //   width: 97%;
-    //   margin-top: 0.5rem;
-    //   text-align: right;
-    //   color: $two-dark-green;
-    // }
 
   // About Me
 
   .about-me {
-    height: 100vh;
-    width: 100%;
+    width: 100vw;
     display: flex;
     align-items: center;
-    background-image: url('/src/assets/img/bgAboutMe.png');
-    background-size: cover;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: $linen;
+
+    .about-me-fl {
+      height: 75vh;
+      width: 75vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .about-me-col-one {
+        height: 80%;
+        width: 35%;
+        margin: 0;
+        justify-content: start;
+        background-image: url('/src/assets/img/AboutMe/photo.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      .about-me-col-two {
+        width: 65%;
+        margin: 0;
+        padding-left: 5%;
+
+        .flower {
+          display: flex;
+
+
+          .sub-flower {
+            width: 6vh;
+            height: 6vh;
+            background-image: url('/src/assets/img/AboutMe/flowerLines.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            padding: 0 9% 0 0;
+          }
+        }
+
+        h2 {
+          font-weight: 300;
+          padding-top: 4%;
+          color: $frenchPuce;
+        }
+
+        h3 {
+          font-weight: 300;
+          color: $mediumCarmine;
+        }
+      }
+    }
+
+    .about-me-ex {
+      height: 25vh;
+      width: 50vw;
+      display: flex;
+      align-items: start;
+      justify-content: center;
+
+      .about-me-col-three, .about-me-col-four {
+        width: 50%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+      
+        button {
+          position: relative;
+          display: inline-block;
+          cursor: pointer;
+          outline: none;
+          border: 0;
+          vertical-align: middle;
+          text-decoration: none;
+          font-family: 'Booster Next FY';
+          font-size: 17px;
+          font-weight: 600;
+          letter-spacing: 1px;
+        
+          &.button-col-three, &.button-col-four {
+            color: $mediumCarmine;
+            text-transform: uppercase;
+            padding: 0.75em 1em;
+            background: $unbleachedSilk;
+            border: 2px solid $mediumCarmine;
+            border-radius: 0.75em;
+            transform-style: preserve-3d;
+            transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+        
+            &::before {
+              position: absolute;
+              content: '';
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: $bigFootFeet;
+              box-shadow: 0 0 0 2px $mediumCarmine;
+              border-radius: 0.75em;
+              transform: translate3d(0, 0.65em, -1em);
+              transition: transform 150ms cubic-bezier(0, 0, 0.50, 1), box-shadow 150ms cubic-bezier(0, 0, 0.50, 1);
+            }
+        
+            &:hover {
+              color: $bigFootFeet;
+              background: $linen;
+              transform: translate(0, 0.2em);
+        
+              &::before {
+                transform: translate3d(0, 0.5em, -1em);
+              }
+            }
+        
+            &:active {
+              transform: translate(0em, 0.75em);
+        
+              &::before {
+                transform: translate3d(0, 0, -1em);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
+// Mini Banner ABOUT ME
+
   .mini-banner {
-    height: 8vh;
+    height: 7vh;
     width: 100vw;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: $linen;
+    border-bottom: 0.5vh solid $bigFootFeet;
+    border-top: 0.5vh solid $bigFootFeet;
   }
   
     .infinite-marquee {
-      height: 7vh;
-      width: 100%;
       display: flex;
-      justify-content: flex-start;
       align-items: center;
-      overflow: hidden;
-      background-color: $two-light-orange;
-      border-bottom: 0.5vh solid $magenta;
-      border-top: 0.5vh solid $magenta;
+      justify-items: center;
+      gap: 2vw;
+      animation: move-rtl 300000ms linear infinite;
+
+      .marquee-logo {
+        width: 4vh;
+        height: 4vh;
+        background-image: url('/src/assets/img/AboutMe/logo.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      .marquee-flower {
+        width: 4vh;
+        height: 4vh;
+        background-image: url('/src/assets/img/AboutMe/flower.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
 
       h2 {
-        color: $magenta;
-        align-self: center;
-        word-spacing: 0.2rem;
         white-space: nowrap;
-        animation: move-rtl 90000ms linear infinite;
-
-        span {
-          padding: 0% 1% 0% 1%;
-        }
-
+        color: $bigFootFeet;
+        font-weight: 400;
+        letter-spacing: 1px;
       }
 
       @keyframes move-rtl {
@@ -166,7 +309,78 @@ body {
         }
       }
     }
-  
+
+// Mini Banner Projects
+
+.mini-banner-pro {
+  height: 7vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: $eggshell;
+  border-bottom: 0.5vh solid $palmLeaf;
+  border-top: 0.5vh solid $palmLeaf;
+
+  .marquee-logo {
+    background-image: url('/src/assets/img/Projects/logo.svg');
+  }
+
+  .marquee-flower {
+    background-image: url('/src/assets/img/Projects/flower.svg');
+  }
+
+  h2 {
+    color: $palmLeaf
+  }
+}
+
+// PROJECTS
+
+.projects {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $teaGreen
+}
+
+// CONTACT ME
+
+.mini-banner-contact {
+  height: 7vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: $piggyPink;
+  border-bottom: 0.5vh solid $bigDipRuby;
+  border-top: 0.5vh solid $bigDipRuby;
+
+  .marquee-logo {
+    background-image: url('/src/assets/img/ContactMe/logoCinnamon.svg');
+  }
+
+  .marquee-flower {
+    background-image: url('/src/assets/img/ContactMe/flowerCinnamon.svg');
+  }
+
+  h2 {
+    color: $bigDipRuby;
+  }
+}
+
+.contact {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  background-image: url('/src/assets/img/ContactMe/bg.png');
+  background-size: cover;
+  background-position: center;
+}
+
   // Navbar
   .navbar {
     position: fixed;
@@ -207,5 +421,3 @@ body {
       }
     }
   }
-
-
