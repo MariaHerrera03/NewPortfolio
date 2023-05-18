@@ -1,4 +1,18 @@
+import React, { useState } from 'react'
+import Modal from 'react-modal'
+
 const AboutMe = () => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <section className="about-me">
             <div className="about-me-fl">
@@ -16,12 +30,39 @@ const AboutMe = () => {
             </div>
             <div className="about-me-ex">
                 <div className="about-me-col-three">
-                    <button className="button-col-three">Skills | Habilidades</button>
+                    <button onClick={openModal} className="button-col-three">Skills | Habilidades</button>
                 </div>
                 <a href="https://cvmariaherrera.netlify.app/" target="_blank" className="about-me-col-four" rel="noreferrer">
                     <button className="button-col-four">Curriculum</button>
                 </a>
             </div>
+            <Modal className="modal" isOpen={isModalOpen} onRequestClose={closeModal}>
+                <div className="modal-text">
+                    <h2>Echa un vistazo a mi colección de insignias! Estos divertidos elementos representan algunas de mis habilidades adquiridas a lo largo del tiempo. Cada insignia es como un pequeño tesoro que he ido recolectando en mi viaje de desarrollo. </h2>
+                </div>
+                <div className="modal-grid">
+                    <div className="modal-grid-one">
+                        <div className="cel-one"></div>
+                        <div className="cel-two"></div>
+                        <div className="cel-three"></div>
+                        <div className="cel-four"></div>
+                        <div className="cel-five"></div>
+                    </div>
+                    <div className="modal-grid-two">
+                        <div className="cel-six"></div>
+                        <div className="cel-seven"></div>
+                        <div className="cel-eight"></div>
+                        <div className="cel-nine"></div>
+                    </div>
+                    <div className="modal-grid-three">
+                        <div className="cel-ten"></div>
+                        <div className="cel-eleven"></div>
+                        <div className="cel-twelve"></div>
+                    </div>
+                </div>
+                
+                {/* <button onClick={closeModal}>Cerrar</button> */}
+            </Modal>
         </section>
     )
 }

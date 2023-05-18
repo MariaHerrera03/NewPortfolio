@@ -267,7 +267,155 @@ body {
     border-bottom: 0.5vh solid $bigFootFeet;
     border-top: 0.5vh solid $bigFootFeet;
   }
-  
+
+  .modal {
+    height: 75vh;
+    width: 65vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    z-index: 40;
+    margin: auto;
+    background-color: $linen;
+    border: 0.25em solid $mediumCarmine;
+    border-radius: 0.75em;
+
+    .modal-text {
+      width: 100%;
+      text-align: center;
+      padding-top: 1em;
+      
+      h2 {
+        font-weight: 300;
+        color: $frenchPuce;
+      }
+    }
+
+    .modal-grid {
+      height: 80%;
+      width: 65%;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      
+
+      .modal-grid-one {
+        width: 100%;
+        display: grid;
+        align-content: end;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.7fr;
+        gap: 0px 0.8em;
+        grid-auto-flow: row;
+        grid-template-areas:
+          "cel-one cel-two cel-three cel-four cel-five";
+      }
+        
+      .modal-grid-two {
+        width: 100%;
+        display: grid;
+        align-content: center;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.7fr;
+        gap: 0px 0.7em;
+        grid-auto-flow: row;
+        grid-template-areas:
+          ". cel-six cel-seven cel-eight cel-nine .";
+      }
+
+      .modal-grid-three {
+        width: 100%;
+        display: grid;
+        align-content: start;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.7fr;
+        gap: 0px 0.8em;
+        grid-auto-flow: row;
+        grid-template-areas:
+          ". cel-ten cel-eleven cel-twelve .";
+      }
+      
+        .cel-one, .cel-two, .cel-three, .cel-four, .cel-five, .cel-six, .cel-seven, .cel-eight, .cel-nine, .cel-ten, .cel-eleven, .cel-twelve {
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: auto;
+          transition: 1500ms;
+
+          &:hover {
+            width: 100%;
+            transform: translate(0%, -65%) scale(2.7) rotate(360deg);
+          }
+        }
+      
+        .cel-one {
+          grid-area: cel-one;
+          background-image: url("./assets/img/AboutMe/badge01.svg");
+        }
+        
+        .cel-two {
+          grid-area: cel-two;
+          background-image: url("./assets/img/AboutMe/badge02.svg");
+        }
+        
+        .cel-three {
+          grid-area: cel-three;
+          background-image: url("./assets/img/AboutMe/badge03.svg");
+        }
+        
+        .cel-four {
+          grid-area: cel-four;
+          background-image: url("./assets/img/AboutMe/badge04.svg");
+        }
+        
+        .cel-five {
+          grid-area: cel-five;
+          background-image: url("./assets/img/AboutMe/badge05.svg");
+        }
+        
+        .cel-six {
+          grid-area: cel-six;
+          background-image: url("./assets/img/AboutMe/badge06.svg");
+        }
+        
+        .cel-seven {
+          grid-area: cel-seven;
+          background-image: url("./assets/img/AboutMe/badge07.svg");
+        }
+        
+        .cel-eight {
+          grid-area: cel-eight;
+          background-image: url("./assets/img/AboutMe/badge08.svg");
+        }
+        
+        .cel-nine {
+          grid-area: cel-nine;
+          background-image: url("./assets/img/AboutMe/badge09.svg");
+        }
+        
+        .cel-ten {
+          grid-area: cel-ten;
+          background-image: url("./assets/img/AboutMe/badge10.svg");
+        }
+        
+        .cel-eleven {
+          grid-area: cel-eleven;
+          background-image: url("./assets/img/AboutMe/badge11.svg");
+        }
+        
+        .cel-twelve {
+          grid-area: cel-twelve;
+          background-image: url("./assets/img/AboutMe/badge12.svg");
+        }
+      }
+  }
+
+  .ReactModal__Overlay {
+    display: flex;
+    background-color: rgba(252, 223, 201, 0.7) !important;
+    backdrop-filter: blur(3px) !important;
+    z-index: 20; 
+  }
+
     .infinite-marquee {
       display: flex;
       align-items: center;
