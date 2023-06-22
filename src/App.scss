@@ -270,20 +270,95 @@ body {
 
   .modal {
     height: 75vh;
-    width: 65vw;
+    width: 75vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: center;
     z-index: 40;
-    margin: auto;
+    margin: auto;      
     background-color: $linen;
     border: 0.25em solid $mediumCarmine;
     border-radius: 0.75em;
 
+    button {
+      position: absolute;
+      top: 15vh;
+      right: 13.8vw;
+      cursor: pointer;
+      outline: none;
+      vertical-align: middle;
+      text-decoration: none;
+      font-family: 'Booster Next FY';
+    
+      &.modal-close-button {
+        outline: none;
+        color: $mediumCarmine;
+        text-transform: uppercase;
+        padding: 0.45em 0.60em;
+        background: $unbleachedSilk;
+        border: 2px solid $mediumCarmine;
+        border-radius: 10em;
+        transform-style: preserve-3d;
+        transition: transform 150ms cubic-bezier(0, 0, 0.48, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+    
+        &::before {
+          position: absolute;
+          content: '';
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: $bigFootFeet;
+          box-shadow: 0 0 0 2px $mediumCarmine;
+          border-radius: 10em;
+          transform: translate3d(0, 0.45em, -1em);
+          transition: transform 150ms cubic-bezier(0, 0, 0.50, 1), box-shadow 150ms cubic-bezier(0, 0, 0.50, 1);
+        }
+    
+        &:hover {
+          color: $bigFootFeet;
+          background: $linen;
+          outline: none;
+          transform: translate(0, 0.2em);
+    
+          &::before {
+            transform: translate3d(0, 0.3em, -1em);
+          }
+        }
+    
+        &:active {
+          outline: none;
+          transform: translate(0em, 0.6em);
+    
+          &::before {
+            transform: translate3d(0, 0, -0.5em);
+          }
+        }
+      }
+    }
+
+    .modal-title {
+      height: 12vh;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+
+      h3 {
+        color: $bigFootFeet;
+      }
+    }
+
     .modal-text {
-      width: 100%;
+      height: 15vh;
+      margin-left: 20vh;
+      margin-right: 20vh;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
       text-align: center;
-      padding-top: 1em;
       
       h2 {
         font-weight: 300;
@@ -292,121 +367,76 @@ body {
     }
 
     .modal-grid {
-      height: 80%;
-      width: 65%;
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0;
-      
+      height: 42vh;
+      width: 56vw;
+      margin-top: 3vh;
+      margin-bottom: 3vh;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 0px 0.8em;
 
-      .modal-grid-one {
-        width: 100%;
-        display: grid;
-        align-content: end;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 0.7fr;
-        gap: 0px 0.8em;
-        grid-auto-flow: row;
-        grid-template-areas:
-          "cel-one cel-two cel-three cel-four cel-five";
-      }
-        
-      .modal-grid-two {
-        width: 100%;
-        display: grid;
-        align-content: center;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 0.7fr;
-        gap: 0px 0.7em;
-        grid-auto-flow: row;
-        grid-template-areas:
-          ". cel-six cel-seven cel-eight cel-nine .";
+      .cel-one, .cel-two, .cel-three, .cel-four, .cel-five, .cel-six, .cel-seven, .cel-eight, .cel-nine, .cel-ten, .cel-eleven, .cel-twelve {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto;
+        transition: 500ms;
+
+        &:hover {
+          width: 100%;
+          transform: translate(0%, -50%) scale(2.5);
+        }
       }
 
-      .modal-grid-three {
-        width: 100%;
-        display: grid;
-        align-content: start;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: 0.7fr;
-        gap: 0px 0.8em;
-        grid-auto-flow: row;
-        grid-template-areas:
-          ". cel-ten cel-eleven cel-twelve .";
-      }
       
-        .cel-one, .cel-two, .cel-three, .cel-four, .cel-five, .cel-six, .cel-seven, .cel-eight, .cel-nine, .cel-ten, .cel-eleven, .cel-twelve {
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: auto;
-          transition: 1500ms;
+      .cel-one {
+        background-image: url("./assets/img/AboutMe/badge01.svg");
+      }
 
-          &:hover {
-            width: 100%;
-            transform: translate(0%, -65%) scale(2.7) rotate(360deg);
-          }
-        }
-      
-        .cel-one {
-          grid-area: cel-one;
-          background-image: url("./assets/img/AboutMe/badge01.svg");
-        }
-        
-        .cel-two {
-          grid-area: cel-two;
-          background-image: url("./assets/img/AboutMe/badge02.svg");
-        }
-        
-        .cel-three {
-          grid-area: cel-three;
-          background-image: url("./assets/img/AboutMe/badge03.svg");
-        }
-        
-        .cel-four {
-          grid-area: cel-four;
-          background-image: url("./assets/img/AboutMe/badge04.svg");
-        }
-        
-        .cel-five {
-          grid-area: cel-five;
-          background-image: url("./assets/img/AboutMe/badge05.svg");
-        }
-        
-        .cel-six {
-          grid-area: cel-six;
-          background-image: url("./assets/img/AboutMe/badge06.svg");
-        }
-        
-        .cel-seven {
-          grid-area: cel-seven;
-          background-image: url("./assets/img/AboutMe/badge07.svg");
-        }
-        
-        .cel-eight {
-          grid-area: cel-eight;
-          background-image: url("./assets/img/AboutMe/badge08.svg");
-        }
-        
-        .cel-nine {
-          grid-area: cel-nine;
-          background-image: url("./assets/img/AboutMe/badge09.svg");
-        }
-        
-        .cel-ten {
-          grid-area: cel-ten;
-          background-image: url("./assets/img/AboutMe/badge10.svg");
-        }
-        
-        .cel-eleven {
-          grid-area: cel-eleven;
-          background-image: url("./assets/img/AboutMe/badge11.svg");
-        }
-        
-        .cel-twelve {
-          grid-area: cel-twelve;
-          background-image: url("./assets/img/AboutMe/badge12.svg");
-        }
+      .cel-two {
+        background-image: url("./assets/img/AboutMe/badge02.svg");
       }
+
+      .cel-three {
+        background-image: url("./assets/img/AboutMe/badge03.svg");
+      }
+
+      .cel-four {
+        background-image: url("./assets/img/AboutMe/badge04.svg");
+      }
+
+      .cel-five {
+        background-image: url("./assets/img/AboutMe/badge05.svg");
+      }
+
+      .cel-six {
+        background-image: url("./assets/img/AboutMe/badge06.svg");
+      }
+
+      .cel-seven {
+        background-image: url("./assets/img/AboutMe/badge07.svg");
+      }
+
+      .cel-eight {
+        background-image: url("./assets/img/AboutMe/badge08.svg");
+      }
+
+      .cel-nine {
+        background-image: url("./assets/img/AboutMe/badge09.svg");
+      }
+
+      .cel-ten {
+        background-image: url("./assets/img/AboutMe/badge10.svg");
+      }
+
+      .cel-eleven {
+        background-image: url("./assets/img/AboutMe/badge11.svg");
+      }
+
+      .cel-twelve {
+        background-image: url("./assets/img/AboutMe/badge12.svg");
+      }
+    }
   }
 
   .ReactModal__Overlay {
@@ -491,8 +521,52 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $teaGreen
+  background-color: $teaGreen;
+
+  &-container {
+    display: flex;
+    width: 75vw;
+
+    .panel {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 80vh;
+      border-radius: 0.75em;
+      color: #fff;
+      cursor: pointer;
+      flex: 0.5;
+      margin: 10px;
+      position: relative;
+      transition: flex 0.7s ease-in;
+      border: 0.5vh solid $middleGreenYellow;
+      
+      &.active {
+        flex: 5;
+        border: none;
+        
+        h3 {
+          opacity: 1;
+          transition: opacity 0.3s ease-in 0.4s;
+        }
+      }
+    
+      h3 {
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        margin: 0;
+        opacity: 0;
+      }
+    }
+  }
 }
+
+
+
+
+
+
 
 // CONTACT ME
 
@@ -531,9 +605,9 @@ body {
 
   // Navbar
   .navbar {
+    width: 100vw;
     position: fixed;
     top: 0;
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -541,31 +615,78 @@ body {
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 10;
-    
-    // &__logo {
-    //   /* Estilos para el logo */
-    // }
-    
-    ul {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    
-    li {
-      margin: 0 1rem;
-    }
-    
-    &-link {
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-      font-weight: 500;
-      transition: color 0.2s ease-in-out;
+    border-bottom: solid 0.5vh $metallicGreen;
+    transition: opacity 0.3s;
+
+    &.scrolled {
+      background-color: #f5dfe350;
+      border-bottom: solid 0.5vh $bigDipRuby;
       
       &:hover {
-        color: #0066ff;
+        border-bottom: solid 0.5vh rgba($bigDipRuby, 0.6);
       }
     }
+
+    &:hover {
+      border-bottom: solid 0.5vh rgba($metallicGreen, 0.6);
+    }
+    
+    &-logo {
+      padding: 0.3vh 4vh 0.3vh 4vh;
+
+      &-link {
+        display: block;
+        height: 8vh;
+        width: 8vh;
+        background-image: url('/src/assets/img/Navbar/IconG.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        outline: none;
+        transition: opacity 0.3s;
+
+        &.scrolled {
+          background-image: url('/src/assets/img/Navbar/IconM.svg');
+        }
+  
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+    
+    &-categories {
+      padding: 0.5vh 4vh 1vh 4vh;
+
+      ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        
+        li {
+          margin: 0 1rem;
+        }
+      }
+      
+      &-link {
+        transition: opacity 0.3s;
+
+        h2 {
+          font-weight: 400;
+          color: $metallicGreen;
+        }
+
+        &.scrolled {
+          h2 {
+            color: $bigDipRuby;
+          }
+        }
+
+        &:hover {
+          opacity: 0.6;
+          }
+        }
+      }
+    
   }

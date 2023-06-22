@@ -1,26 +1,30 @@
-import Header from './Home/Header'
-import AboutMe from './Home/AboutMe'
-import InfiniteOne from './Home/AboutMeInfinite'
-import Navbar from '../pages/Navbar'
-import InfiniteTwo from './Home/ProjectsInfinite'
-import Projects from './Home/Projects'
-import InfiniteThree from './Home/ContactMeInfinite'
-import ContactMe from './Home/ContactMe'
+import Header from './Home/Header';
+import AboutMe from './Home/AboutMe';
+import InfiniteOne from './Home/AboutMeInfinite';
+import InfiniteTwo from './Home/ProjectsInfinite';
+import Projects from './Home/Projects';
+import InfiniteThree from './Home/ContactMeInfinite';
+import ContactMe from './Home/ContactMe';
 
 function Home() {
 
     return (
         <>
-            <Navbar/>
-            <Header/>
-            <InfiniteOne/>
-            <AboutMe/>
-            <InfiniteTwo/>
-            <Projects/>
-            <InfiniteThree/>
-            <ContactMe/>
+        <Header/>
+        <div id="aboutme">
+            <InfiniteOne />
+            <AboutMe />
+        </div>
+        <div id="projects">
+            <InfiniteTwo />
+            <Projects />
+        </div>
+        <div id="contactme">
+            <InfiniteThree />
+            <ContactMe />
+        </div>
         </>
-    )
+    );
 }
 
-export default Home
+export default Home;
